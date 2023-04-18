@@ -38,7 +38,7 @@ jobs:
           node-version: 18.4.0
           cache: "yarn"
       - name: Install dependency
-        run: yarn
+        run: cd react-sample && yarn
       - name: Build
         run: cd react-sample && GENERATE_SOURCEMAP=false REACT_APP_ROUTE_BASENAME='rust-webassembly-react' yarn react-scripts build
         env:
