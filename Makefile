@@ -5,7 +5,7 @@ initialize:
 
 build:
 	cd rust-sample && wasm-pack build --target web
-	cp -r rust-sample/pkg react-sample/src
+	cp -r rust-sample/pkg/ react-sample/src/wasm/
 	cd react-sample && yarn build
 
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import logo from './logo.svg';
 import './App.css';
-import init, { greet } from './pkg/rust_sample';
+import init, { greet } from './wasm/rust_sample';
 
 function App() {
   const [wasmLoaded, setWasmLoaded] = useState(false);
