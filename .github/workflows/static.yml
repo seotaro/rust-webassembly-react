@@ -31,7 +31,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        
+
       - name: Setup node
         uses: actions/setup-node@v3
         with:
@@ -40,19 +40,16 @@ jobs:
       - name: Install dependency
         run: yarn
       - name: Build
-        run: |
-            cd rust-sample && wasm-pack build --target web
-            cp -r rust-sample/pkg react-sample/src
-            cd react-sample && GENERATE_SOURCEMAP=false REACT_APP_ROUTE_BASENAME='rust-webassembly-react' yarn react-scripts build
+        run: cd react-sample && GENERATE_SOURCEMAP=false REACT_APP_ROUTE_BASENAME='rust-webassembly-react' yarn react-scripts build
         env:
-            CI: false
-        
+          CI: false
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: './build'
+          path: "./build"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
