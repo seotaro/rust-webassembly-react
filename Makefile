@@ -8,6 +8,10 @@ build:
 	cp -r rust-sample/pkg/ react-sample/src/wasm/
 	cd react-sample && yarn build
 
-
 run:
 	cd react-sample && yarn start
+
+upload:
+	gsutil -m -h "Content-Encoding:gzip" \
+		-h "Cache-Control:public, max-age=15, no-store" \
+		cp -Z -r react-sample/build/* gs://rust-webassembly
