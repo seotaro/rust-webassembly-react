@@ -1,7 +1,25 @@
+import React, { useState, useEffect } from 'react';
+
 import logo from './logo.svg';
 import './App.css';
+import init, { greet } from './pkg/rust_sample';
 
 function App() {
+  const [wasmLoaded, setWasmLoaded] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      await init();
+      setWasmLoaded(true);
+    })();
+  }, []);
+
+  useEffect(() => {
+    if (wasmLoaded) {
+      greet();
+    }
+  }, [wasmLoaded]);
+
   return (
     <div className="App">
       <header className="App-header">

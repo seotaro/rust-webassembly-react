@@ -1,5 +1,5 @@
 [package]
-name = "rust-sample"
+name = "rust_sample"
 version = "0.1.0"
 authors = ["seotaro <mail2017@seotaro.com>"]
 edition = "2018"
